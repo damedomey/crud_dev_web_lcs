@@ -16,6 +16,7 @@
       <input type="text" name="libelle"><br><br>
       <button type="submit">Ajouter</button>
     </form>
+    <a href="listeCategorie.php">↩Retour</a>
   </div>
 </body>
 

@@ -36,5 +36,3 @@ class Categorie
     return $request->fetchAll(PDO::FETCH_ASSOC);
   }
 }
-
-$cat = new Categorie();

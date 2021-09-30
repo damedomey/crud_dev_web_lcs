@@ -10,7 +10,7 @@
 
 <body>
   <div>
-    <a href="">Ajouter</a><br><br>
+    <a href="addCategorie.php">Ajouter</a><br><br>
     <table border style="border-collapse: collapse;">
       <thead>
         <th>Id</th>
@@ -18,16 +18,26 @@
         <th></th>
       </thead>
       <tbody>
-        <tr>
+        <?php
+        require_once("model/Categorie.php");
+        $categorie = new Categorie();
+        $listeCategorie = $categorie->findAll();
+        // echo '<pre>';
+        // print_r($listeCategorie[0]);
+        // echo '</pre>';
+        foreach ($listeCategorie as $tuple) {
+          echo "<tr>";
+          echo "<td>" . $tuple['id'] . "</td>";
+          echo "<td>" . $tuple['libelle'] . "</td>";
+          echo "<td><button>Editer</button><button>Supprimer</button></td>";
+          echo "</tr>";
+        }
+        ?>
+        <!--<tr>
           <td>1</td>
           <td>Fruit</td>
           <td><button>Editer</button><button>Supprimer</button></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Lol</td>
-          <td><button>Editer</button><button>Supprimer</button></td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
   </div>
