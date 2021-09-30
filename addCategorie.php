@@ -1,3 +1,12 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  require_once "model/Categorie.php";
+  $categorie = new Categorie();
+  $categorie->insert($_POST['libelle']);
+  header('location:listeCategorie.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

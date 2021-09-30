@@ -35,4 +35,14 @@ class Categorie
     $request->execute();
     return $request->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  /**
+   * Permet d'insérer un libellé dans la table catégorie
+   */
+  public function insert(string $libelle)
+  {
+    $sql = "INSERT INTO categorie(libelle) VALUE ('" . $libelle . "')";
+    $request = $this->_db->prepare($sql);
+    return $request->execute();
+  }
 }
