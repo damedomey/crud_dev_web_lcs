@@ -1,3 +1,11 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  require_once "model/Categorie.php";
+  $categorie = new Categorie();
+  $categorie->update($_POST['id'], $_POST['libelle']);
+  header('location:listeCategorie.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +20,9 @@
   <div>
     <h3>Modifier une categorie</h3>
     <form action="" method="post">
+      <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
       <label for="libelle">Libelle</label>
-      <input type="text" name="libelle"><br><br>
+      <input type="text" name="libelle" value="<?php echo $_GET['libelle'] ?>"><br><br>
       <button type="submit">Modifier</button>
     </form>
   </div>

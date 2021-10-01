@@ -45,4 +45,24 @@ class Categorie
     $request = $this->_db->prepare($sql);
     return $request->execute();
   }
+
+  /**
+   * Permet de mettre à jour un libellé dans la table catégorie en fonction de l'id
+   */
+  public function update(int $id, string $libelle)
+  {
+    $sql = "UPDATE categorie SET libelle = '" . $libelle . "' WHERE id = " . $id;
+    $request = $this->_db->prepare($sql);
+    return $request->execute();
+  }
+
+  /**
+   * Permet de supprimer un tupple dans la table catégorie en fonction de l'id
+   */
+  public function delete(int $id)
+  {
+    $sql = "DELETE FROM categorie WHERE id = " . $id;
+    $request = $this->_db->prepare($sql);
+    return $request->execute();
+  }
 }

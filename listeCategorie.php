@@ -22,14 +22,13 @@
         require_once("model/Categorie.php");
         $categorie = new Categorie();
         $listeCategorie = $categorie->findAll();
-        // echo '<pre>';
-        // print_r($listeCategorie[0]);
-        // echo '</pre>';
         foreach ($listeCategorie as $tuple) {
+          $id = $tuple['id'];
+          $libelle = $tuple['libelle'];
           echo "<tr>";
-          echo "<td>" . $tuple['id'] . "</td>";
-          echo "<td>" . $tuple['libelle'] . "</td>";
-          echo "<td><button>Editer</button><button>Supprimer</button></td>";
+          echo "<td>$id</td>";
+          echo "<td>$libelle</td>";
+          echo "<td><a href='editCategorie.php?id=$id&libelle=$libelle'><button>Editer</button></a><a href='delCategorie.php?id=$id'><button>Supprimer</button></a></td>";
           echo "</tr>";
         }
         ?>
